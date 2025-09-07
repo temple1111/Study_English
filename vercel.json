@@ -15,10 +15,6 @@
     {
       "src": "/api/(.*)",
       "dest": "eng_learner_web_app/backend/main.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "eng_learner_web_app/frontend/build/$1"
     }
   ]
 }

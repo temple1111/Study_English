@@ -4,13 +4,11 @@
     {
       "src": "eng_learner_web_app/frontend/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "build" },
-      "root": "eng_learner_web_app/frontend"
+      "config": { "distDir": "build" }
     },
     {
       "src": "eng_learner_web_app/backend/main.py",
-      "use": "@vercel/python",
-      "root": "eng_learner_web_app/backend"
+      "use": "@vercel/python"
     }
   ],
   "routes": [

@@ -2,12 +2,6 @@
   "version": 2,
   "builds": [
     {
-      "src": "eng_learner_web_app/frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "build" },
-      "outputDirectory": "eng_learner_web_app/frontend/build"
-    },
-    {
       "src": "eng_learner_web_app/backend/main.py",
       "use": "@vercel/python"
     }

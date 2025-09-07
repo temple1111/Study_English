@@ -10,8 +10,10 @@
     {
       "src": "/api/(.*)",
       "dest": "eng_learner_web_app/backend/main.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "eng_learner_web_app/frontend/build/index.html"
     }
-  ],
-  "installCommand": "npm install --prefix eng_learner_web_app/frontend && pip install -r eng_learner_web_app/backend/requirements.txt",
-  "buildCommand": "npm run build --prefix eng_learner_web_app/frontend"
+  ]
 }

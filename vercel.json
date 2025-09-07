@@ -2,6 +2,11 @@
   "version": 2,
   "builds": [
     {
+      "src": "eng_learner_web_app/frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "build" }
+    },
+    {
       "src": "eng_learner_web_app/backend/main.py",
       "use": "@vercel/python"
     }
@@ -15,5 +20,7 @@
       "src": "/(.*)",
       "dest": "eng_learner_web_app/frontend/build/index.html"
     }
-  ]
+  ],
+  "installCommand": "npm install --prefix eng_learner_web_app/frontend && pip install -r eng_learner_web_app/backend/requirements.txt",
+  "buildCommand": "npm run build --prefix eng_learner_web_app/frontend"
 }

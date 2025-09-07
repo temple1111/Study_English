@@ -12,5 +12,6 @@
       "dest": "eng_learner_web_app/backend/main.py"
     }
   ],
-  "output": "eng_learner_web_app/frontend/build"
+  "installCommand": "npm install --prefix eng_learner_web_app/frontend && pip install -r eng_learner_web_app/backend/requirements.txt",
+  "buildCommand": "npm run build --prefix eng_learner_web_app/frontend"
 }

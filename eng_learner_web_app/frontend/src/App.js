@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || ''; // Fallback for local development
+
 function App() {
   const [name, setName] = useState('');
   const [level, setLevel] = useState('初級'); // Default value
@@ -28,7 +30,7 @@ function App() {
   const handleProfileSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/user/setup', { name, level, goal });
+      const response = await axios.post(`${BACKEND_URL}/user/setup', { name, level, goal });
       setMessage(response.data.message);
       setProfileSetup(true);
     } catch (error) {
@@ -38,7 +40,7 @@ function App() {
 
   const startLearningSession = async () => {
     try {
-      const response = await axios.post('/api/learn/start', null, { params: { user_name: name } });
+      const response = await axios.post(`${BACKEND_URL}/learn/start', null, { params: { user_name: name } });
       setCurrentWord(response.data.word);
       setCurrentOptions(response.data.options); // Set options
       setFeedback('');
@@ -61,7 +63,7 @@ function App() {
       return;
     }
     try {
-      const response = await axios.post('/api/learn/submit_answer', {
+      const response = await axios.post(`${BACKEND_URL}/learn/submit_answer', {
         user_name: name,
         word: currentWord,
         user_answer: selectedAnswer, // Send selected answer
@@ -89,7 +91,7 @@ function App() {
 
   const handleRecordBlockchain = async () => {
     try {
-      const response = await axios.post('/api/blockchain/record_achievement', blockchainData);
+      const response = await axios.post(`${BACKEND_URL}/blockchain/record_achievement', blockchainData);
       setMessage(response.data.message);
       setBlockchainPrompt(false);
     } catch (error) {

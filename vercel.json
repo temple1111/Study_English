@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "eng_learner_web_app/frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "build" }
+    },
+    {
+      "src": "eng_learner_web_app/backend/main.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "eng_learner_web_app/backend/main.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "eng_learner_web_app/frontend/build/$1"
+    }
+  ]
+}

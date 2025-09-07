@@ -22,5 +22,6 @@
     }
   ],
   "installCommand": "npm install --prefix eng_learner_web_app/frontend && pip install -r eng_learner_web_app/backend/requirements.txt",
-  "buildCommand": "npm run build --prefix eng_learner_web_app/frontend"
+  "buildCommand": "npm run build --prefix eng_learner_web_app/frontend",
+  "output": "eng_learner_web_app/frontend/build"
 }
